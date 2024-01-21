@@ -1,206 +1,246 @@
-## Web Site Change Detection, Restock monitoring and notifications.
-
-**_Detect website content changes and perform meaningful actions - trigger notifications via Discord, Email, Slack, Telegram, API calls and many more._**
-
-_Live your data-life pro-actively._ 
-
-
-[<img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/screenshot.png" style="max-width:100%;" alt="Self-hosted web site page change monitoring"  title="Self-hosted web site page change monitoring"  />](https://changedetection.io?src=github)
-
-[![Release Version][release-shield]][release-link] [![Docker Pulls][docker-pulls]][docker-link] [![License][license-shield]](LICENSE.md)
-
-![changedetection.io](https://github.com/dgtlmoon/changedetection.io/actions/workflows/test-only.yml/badge.svg?branch=master)
-
-[**Get started with website page change monitoring straight away. Don't have time? Try our $8.99/month subscription, use our proxies and support!**](https://changedetection.io) , _half the price of other website change monitoring services!_
-
-- Chrome browser included.
-- Nothing to install, access via browser login after signup.
-- Super fast, no registration needed setup.
-- Get started watching and receiving website change notifications straight away.
-- See our [tutorials and how-to page for more inspiration](https://changedetection.io/tutorials) 
-
-### Target specific parts of the webpage using the Visual Selector tool.
-
-Available when connected to a <a href="https://github.com/dgtlmoon/changedetection.io/wiki/Playwright-content-fetcher">playwright content fetcher</a> (included as part of our subscription service)
-
-[<img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/visualselector-anim.gif" style="max-width:100%;" alt="Select parts and elements of a web page to monitor for changes"  title="Select parts and elements of a web page to monitor for changes" />](https://changedetection.io?src=github)
-
-### Easily see what changed, examine by word, line, or individual character.
-
-[<img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/screenshot-diff.png" style="max-width:100%;" alt="Self-hosted web page change monitoring context difference "  title="Self-hosted web page change monitoring context difference " />](https://changedetection.io?src=github)
-
-
-### Perform interactive browser steps
-
-Fill in text boxes, click buttons and more, setup your changedetection scenario. 
-
-Using the **Browser Steps** configuration, add basic steps before performing change detection, such as logging into websites, adding a product to a cart, accept cookie logins, entering dates and refining searches.
-
-[<img src="docs/browsersteps-anim.gif" style="max-width:100%;" alt="Website change detection with interactive browser steps, detect changes behind login and password, search queries and more"  title="Website change detection with interactive browser steps, detect changes behind login and password, search queries and more" />](https://changedetection.io?src=github)
-
-After **Browser Steps** have been run, then visit the **Visual Selector** tab to refine the content you're interested in.
-Requires Playwright to be enabled.
-
-
-### Example use cases
-
-- Products and services have a change in pricing
-- _Out of stock notification_ and _Back In stock notification_
-- Monitor and track PDF file changes, know when a PDF file has text changes.
-- Governmental department updates (changes are often only on their websites)
-- New software releases, security advisories when you're not on their mailing list.
-- Festivals with changes
-- Discogs restock alerts and monitoring
-- Realestate listing changes
-- Know when your favourite whiskey is on sale, or other special deals are announced before anyone else
-- COVID related news from government websites
-- University/organisation news from their website
-- Detect and monitor changes in JSON API responses 
-- JSON API monitoring and alerting
-- Changes in legal and other documents
-- Trigger API calls via notifications when text appears on a website
-- Glue together APIs using the JSON filter and JSON notifications
-- Create RSS feeds based on changes in web content
-- Monitor HTML source code for unexpected changes, strengthen your PCI compliance
-- You have a very sensitive list of URLs to watch and you do _not_ want to use the paid alternatives. (Remember, _you_ are the product)
-- Get notified when certain keywords appear in Twitter search results
-- Proactively search for jobs, get notified when companies update their careers page, search job portals for keywords.
-- Get alerts when new job positions are open on Bamboo HR and other job platforms
-- Website defacement monitoring
-- Pokémon Card Restock Tracker / Pokémon TCG Tracker
-- RegTech - stay ahead of regulatory changes, regulatory compliance
-
-_Need an actual Chrome runner with Javascript support? We support fetching via WebDriver and Playwright!</a>_
-
-#### Key Features
-
-- Lots of trigger filters, such as "Trigger on text", "Remove text by selector", "Ignore text", "Extract text", also using regular-expressions!
-- Target elements with xPath(1.0) and CSS Selectors, Easily monitor complex JSON with JSONPath or jq
-- Switch between fast non-JS and Chrome JS based "fetchers"
-- Track changes in PDF files (Monitor text changed in the PDF, Also monitor PDF filesize and checksums)
-- Easily specify how often a site should be checked
-- Execute JS before extracting text (Good for logging in, see examples in the UI!)
-- Override Request Headers, Specify `POST` or `GET` and other methods
-- Use the "Visual Selector" to help target specific elements
-- Configurable [proxy per watch](https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration)
-- Send a screenshot with the notification when a change is detected in the web page
-
-We [recommend and use Bright Data](https://brightdata.grsm.io/n0r16zf7eivq) global proxy services, Bright Data will match any first deposit up to $100 using our signup link.
-
-[Oxylabs](https://oxylabs.go2cloud.org/SH2d) is also an excellent proxy provider and well worth using, they offer Residental, ISP, Rotating and many other proxy types to suit your project. 
-
-Please :star: star :star: this project and help it grow! https://github.com/dgtlmoon/changedetection.io/
-
-## Installation
-
-### Docker
-
-With Docker composer, just clone this repository and..
-
-```bash
-$ docker compose up -d
-```
-
-Docker standalone
-```bash
-$ docker run -d --restart always -p "127.0.0.1:5000:5000" -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io
-```
-
-`:latest` tag is our latest stable release, `:dev` tag is our bleeding edge `master` branch.
-
-Alternative docker repository over at ghcr - [ghcr.io/dgtlmoon/changedetection.io](https://ghcr.io/dgtlmoon/changedetection.io)
-
-### Windows
-
-See the install instructions at the wiki https://github.com/dgtlmoon/changedetection.io/wiki/Microsoft-Windows
-
-### Python Pip
-
-Check out our pypi page https://pypi.org/project/changedetection.io/
-
-```bash
-$ pip3 install changedetection.io
-$ changedetection.io -d /path/to/empty/data/dir -p 5000
-```
-
-Then visit http://127.0.0.1:5000 , You should now be able to access the UI.
-
-_Now with per-site configurable support for using a fast built in HTTP fetcher or use a Chrome based fetcher for monitoring of JavaScript websites!_
-
-## Updating changedetection.io
-
-### Docker
-```
-docker pull dgtlmoon/changedetection.io
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><h2 tabindex="-1" dir="auto"><a id="user-content-web-site-change-detection-restock-monitoring-and-notifications" class="anchor" aria-hidden="true" tabindex="-1" href="#web-site-change-detection-restock-monitoring-and-notifications"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站变更检测、补货监控和通知。</font></font></h2>
+<p dir="auto"><strong><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">检测网站内容更改并执行有意义的操作 - 通过 Discord、电子邮件、Slack、Telegram、API 调用等触发通知。</font></font></em></strong></p>
+<p dir="auto"><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">积极地享受您的数据生活。</font></font></em></p>
+<p dir="auto"><a href="https://changedetection.io?src=github" rel="nofollow"><img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/screenshot.png" alt="自托管网站页面变化监控" title="自托管网站页面变化监控" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://github.com/dgtlmoon/changedetection.io/releases"><img src="https://camo.githubusercontent.com/18488de3cb74ec50fe6896d2b42be0f3975a667c077289a4dd3f37529749603b/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f762f72656c656173652f6467746c6d6f6f6e2f6368616e6765646574656374696f6e2e696f3f7374796c653d666f722d7468652d6261646765" alt="发布版本" data-canonical-src="https://img.shields.io/github/v/release/dgtlmoon/changedetection.io?style=for-the-badge" style="max-width: 100%;"></a> <a href="https://hub.docker.com/r/dgtlmoon/changedetection.io" rel="nofollow"><img src="https://camo.githubusercontent.com/42766f03f56167f5b3bf3f7bd2fa8400000781966cfc1ae5e2c4592f701fd755/68747470733a2f2f696d672e736869656c64732e696f2f646f636b65722f70756c6c732f6467746c6d6f6f6e2f6368616e6765646574656374696f6e2e696f3f7374796c653d666f722d7468652d6261646765" alt="Docker 拉取" data-canonical-src="https://img.shields.io/docker/pulls/dgtlmoon/changedetection.io?style=for-the-badge" style="max-width: 100%;"></a> <a href="/dgtlmoon/changedetection.io/blob/master/LICENSE.md"><img src="https://camo.githubusercontent.com/f22b19e3ebc79d9809cf024cbb6ca0e94bb9e377b99149dec17dab9acd808315/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f6467746c6d6f6f6e2f6368616e6765646574656374696f6e2e696f2e7376673f7374796c653d666f722d7468652d6261646765" alt="执照" data-canonical-src="https://img.shields.io/github/license/dgtlmoon/changedetection.io.svg?style=for-the-badge" style="max-width: 100%;"></a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="https://github.com/dgtlmoon/changedetection.io/actions/workflows/test-only.yml/badge.svg?branch=master"><img src="https://github.com/dgtlmoon/changedetection.io/actions/workflows/test-only.yml/badge.svg?branch=master" alt="变更检测.io" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://changedetection.io" rel="nofollow"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">立即开始监控网站页面更改。</font><font style="vertical-align: inherit;">没有时间？</font><font style="vertical-align: inherit;">尝试我们 8.99 美元/月的订阅，使用我们的代理和支持！</font></font></strong></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其他网站变更监控服务价格一半！</font></font></em></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包括 Chrome 浏览器。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无需安装，注册后通过浏览器登录即可访问。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">超级快，无需注册即可设置。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">立即开始观看和接收网站更改通知。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅我们的</font></font><a href="https://changedetection.io/tutorials" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">教程和操作方法页面以获得更多灵感</font></font></a></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content-target-specific-parts-of-the-webpage-using-the-visual-selector-tool" class="anchor" aria-hidden="true" tabindex="-1" href="#target-specific-parts-of-the-webpage-using-the-visual-selector-tool"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用视觉选择器工具定位网页的特定部分。</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">连接到</font></font><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Playwright-content-fetcher"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">剧作家内容获取器</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">时可用（作为我们的订阅服务的一部分）</font></font></p>
+<p dir="auto"><animated-image data-catalyst=""><a href="https://changedetection.io?src=github" rel="nofollow" data-target="animated-image.originalLink"><img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/visualselector-anim.gif" alt="选择网页的部分和元素以监视更改" title="选择网页的部分和元素以监视更改" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://changedetection.io/?src=github" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="Select parts and elements of a web page to monitor for changes" class="AnimatedImagePlayer-animatedImage" src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/visualselector-anim.gif" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="500" height="325"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="Play Select parts and elements of a web page to monitor for changes" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="Play Select parts and elements of a web page to monitor for changes">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="Open Select parts and elements of a web page to monitor for changes in new window" class="AnimatedImagePlayer-button" href="https://changedetection.io/?src=github" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-easily-see-what-changed-examine-by-word-line-or-individual-character" class="anchor" aria-hidden="true" tabindex="-1" href="#easily-see-what-changed-examine-by-word-line-or-individual-character"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">轻松查看发生了什么变化，通过单词、行或单个字符进行检查。</font></font></h3>
+<p dir="auto"><a href="https://changedetection.io?src=github" rel="nofollow"><img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/screenshot-diff.png" alt="自托管网页变化监控上下文差异" title="自托管网页变化监控上下文差异" style="max-width: 100%;"></a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-perform-interactive-browser-steps" class="anchor" aria-hidden="true" tabindex="-1" href="#perform-interactive-browser-steps"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执行交互式浏览器步骤</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">填写文本框，单击按钮等，设置您的变更检测场景。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">浏览器步骤</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置，在执行更改检测之前添加基本步骤，例如登录网站、将产品添加到购物车、接受 cookie 登录、输入日期和优化搜索。</font></font></p>
+<p dir="auto"><animated-image data-catalyst=""><a href="https://changedetection.io?src=github" rel="nofollow" data-target="animated-image.originalLink"><img src="/dgtlmoon/changedetection.io/raw/master/docs/browsersteps-anim.gif" alt="通过交互式浏览器步骤检测网站更改，检测登录名和密码、搜索查询等背后的更改" title="通过交互式浏览器步骤检测网站更改，检测登录名和密码、搜索查询等背后的更改" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://changedetection.io/?src=github" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="Website change detection with interactive browser steps, detect changes behind login and password, search queries and more" class="AnimatedImagePlayer-animatedImage" src="https://github.com/dgtlmoon/changedetection.io/raw/master/docs/browsersteps-anim.gif" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="600" height="379"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="Play Website change detection with interactive browser steps, detect changes behind login and password, search queries and more" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="Play Website change detection with interactive browser steps, detect changes behind login and password, search queries and more">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="Open Website change detection with interactive browser steps, detect changes behind login and password, search queries and more in new window" class="AnimatedImagePlayer-button" href="https://changedetection.io/?src=github" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">浏览器步骤</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">后，访问</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">视觉选择器</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选项卡以细化您感兴趣的内容。需要启用 Playwright。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-example-use-cases" class="anchor" aria-hidden="true" tabindex="-1" href="#example-use-cases"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">示例用例</font></font></h3>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">产品和服务的定价发生变化</font></font></li>
+<li><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">缺货通知</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">补货通知</font></font></em></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">监控和跟踪 PDF 文件更改，了解 PDF 文件何时发生文本更改。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">政府部门更新（更改通常仅在其网站上）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新软件发布、当您不在他们的邮件列表中时的安全建议。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">节日的变化</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Discogs 补货警报和监控</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">房地产清单变化</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解您最喜欢的威士忌何时打折，或者先于其他人宣布其他特别优惠</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来自政府网站的新冠肺炎相关新闻</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来自其网站的大学/组织新闻</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">检测并监控 JSON API 响应的变化</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JSON API 监控和警报</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">法律和其他文件的变更</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当网站上出现文本时，通过通知触发 API 调用</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 JSON 过滤器和 JSON 通知将 API 粘合在一起</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">根据网页内容的变化创建 RSS 源</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">监控 HTML 源代码是否发生意外更改，增强 PCI 合规性</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您有一个非常敏感的 URL 列表需要观看，并且您不想</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">付费替代方案。</font><font style="vertical-align: inherit;">（记住，</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">就是产品）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当 Twitter 搜索结果中出现某些关键字时收到通知</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主动搜索职位，在公司更新其职业页面时收到通知，在职位门户中搜索关键字。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当 Bamboo HR 和其他招聘平台有新职位空缺时收到提醒</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站篡改监控</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pokémon 卡补货追踪器 / Pokémon TCG 追踪器</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">RegTech - 领先于监管变化、监管合规</font></font></li>
+</ul>
+<p dir="auto"><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">需要一个支持 Javascript 的实际 Chrome 运行器吗？</font><font style="vertical-align: inherit;">我们支持通过 WebDriver 和 Playwright 获取！</font></font></em></p>
+<h4 tabindex="-1" dir="auto"><a id="user-content-key-features" class="anchor" aria-hidden="true" tabindex="-1" href="#key-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主要特征</font></font></h4>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许多触发过滤器，例如“在文本上触发”、“通过选择器删除文本”、“忽略文本”、“提取文本”，也使用正则表达式！</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 xPath(1.0) 和 CSS 选择器定位元素，使用 JSONPath 或 jq 轻松监控复杂的 JSON</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在快速非 JS 和基于 Chrome JS 的“获取器”之间切换</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">跟踪 PDF 文件中的更改（监控 PDF 中的文本更改，还监控 PDF 文件大小和校验和）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">轻松指定检查站点的频率</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在提取文本之前执行 JS（适合登录，请参阅 UI 中的示例！）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">覆盖请求标头、指定</font></font><code>POST</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code>GET</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">等方法</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用“视觉选择器”帮助定位特定元素</font></font></li>
+<li><font style="vertical-align: inherit;"><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration"><font style="vertical-align: inherit;">每个手表</font></a><font style="vertical-align: inherit;">可配置代理</font></font><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在网页中检测到更改时发送带有通知的屏幕截图</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们</font></font><a href="https://brightdata.grsm.io/n0r16zf7eivq" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">推荐并使用 Bright Data</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全球代理服务，Bright Data 将使用我们的注册链接匹配任何首次存款，最高可达 100 美元。</font></font></p>
+<p dir="auto"><a href="https://oxylabs.go2cloud.org/SH2d" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Oxylabs</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">也是一家优秀的代理提供商，非常值得使用，他们提供住宅、ISP、轮换和许多其他代理类型来适合您的项目。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请⭐星⭐这个项目并帮助它成长！</font></font><a href="https://github.com/dgtlmoon/changedetection.io/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/dgtlmoon/changedetection.io/</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-installation" class="anchor" aria-hidden="true" tabindex="-1" href="#installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font></font></h2>
+<h3 tabindex="-1" dir="auto"><a id="user-content-docker" class="anchor" aria-hidden="true" tabindex="-1" href="#docker"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">码头工人</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用 Docker Composer，只需克隆此存储库并..</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>$ docker compose up -d</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ docker compose up -d" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Docker 独立版</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>$ docker run -d --restart always -p <span class="pl-s"><span class="pl-pds">"</span>127.0.0.1:5000:5000<span class="pl-pds">"</span></span> -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ docker run -d --restart always -p &quot;127.0.0.1:5000:5000&quot; -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><code>:latest</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tag 是我们最新的稳定版本，</font></font><code>:dev</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tag 是我们的前沿</font></font><code>master</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">分支。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">替代 docker 存储库位于 ghcr - </font></font><a href="https://ghcr.io/dgtlmoon/changedetection.io" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ghcr.io/dgtlmoon/changedetection.io</font></font></a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-windows" class="anchor" aria-hidden="true" tabindex="-1" href="#windows"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">视窗</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅 wiki 上的安装说明</font></font><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Microsoft-Windows"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/dgtlmoon/changedetection.io/wiki/Microsoft-Windows</font></font></a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-python-pip" class="anchor" aria-hidden="true" tabindex="-1" href="#python-pip"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Python 点子</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看我们的 pypi 页面</font></font><a href="https://pypi.org/project/changedetection.io/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://pypi.org/project/changedetection.io/</font></font></a></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>$ pip3 install changedetection.io
+$ changedetection.io -d /path/to/empty/data/dir -p 5000</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="$ pip3 install changedetection.io
+$ changedetection.io -d /path/to/empty/data/dir -p 5000" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然后访问</font></font><a href="http://127.0.0.1:5000" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://127.0.0.1:5000</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，您现在应该可以访问 UI 了。</font></font></p>
+<p dir="auto"><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在，每个站点可配置支持使用快速内置的 HTTP 获取器或使用基于 Chrome 的获取器来监控 JavaScript 网站！</font></font></em></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-updating-changedetectionio" class="anchor" aria-hidden="true" tabindex="-1" href="#updating-changedetectionio"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更新 ChangeDetection.io</font></font></h2>
+<h3 tabindex="-1" dir="auto"><a id="user-content-docker-1" class="anchor" aria-hidden="true" tabindex="-1" href="#docker-1"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">码头工人</font></font></h3>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>docker pull dgtlmoon/changedetection.io
 docker kill $(docker ps -a -f name=changedetection.io -q)
 docker rm $(docker ps -a -f name=changedetection.io -q)
 docker run -d --restart always -p "127.0.0.1:5000:5000" -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io
-```
-
-### docker compose
-
-```bash
-docker compose pull && docker compose up -d
-```
-
-See the wiki for more information https://github.com/dgtlmoon/changedetection.io/wiki
-
-
-## Filters
-
-XPath(1.0), JSONPath, jq, and CSS support comes baked in! You can be as specific as you need, use XPath exported from various XPath element query creation tools. 
-(We support LXML `re:test`, `re:match` and `re:replace`.)
-
-## Notifications
-
-ChangeDetection.io supports a massive amount of notifications (including email, office365, custom APIs, etc) when a web-page has a change detected thanks to the <a href="https://github.com/caronc/apprise">apprise</a> library.
-Simply set one or more notification URL's in the _[edit]_ tab of that watch.
-
-Just some examples
-
-    discord://webhook_id/webhook_token
-    flock://app_token/g:channel_id
-    gitter://token/room
-    gchat://workspace/key/token
-    msteams://TokenA/TokenB/TokenC/
-    o365://TenantID:AccountEmail/ClientID/ClientSecret/TargetEmail
-    rocket://user:password@hostname/#Channel
-    mailto://user:pass@example.com?to=receivingAddress@example.com
-    json://someserver.com/custom-api
-    syslog://
- 
-<a href="https://github.com/caronc/apprise#popular-notification-services">And everything else in this list!</a>
-
-<img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/screenshot-notifications.png" style="max-width:100%;" alt="Self-hosted web page change monitoring notifications"  title="Self-hosted web page change monitoring notifications"  />
-
-Now you can also customise your notification content and use <a target="_new" href="https://jinja.palletsprojects.com/en/3.0.x/templates/">Jinja2 templating</a> for their title and body!
-
-## JSON API Monitoring
-
-Detect changes and monitor data in JSON API's by using either JSONPath or jq to filter, parse, and restructure JSON as needed.
-
-![image](https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/json-filter-field-example.png)
-
-This will re-parse the JSON and apply formatting to the text, making it super easy to monitor and detect changes in JSON API results
-
-![image](https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/json-diff-example.png)
-
-### JSONPath or jq?
-
-For more complex parsing, filtering, and modifying of JSON data, jq is recommended due to the built-in operators and functions. Refer to the [documentation](https://stedolan.github.io/jq/manual/) for more specific information on jq.
-
-One big advantage of `jq` is that you can use logic in your JSON filter, such as filters to only show items that have a value greater than/less than etc.
-
-See the wiki https://github.com/dgtlmoon/changedetection.io/wiki/JSON-Selector-Filter-help for more information and examples
-
-### Parse JSON embedded in HTML!
-
-When you enable a `json:` or `jq:` filter, you can even automatically extract and parse embedded JSON inside a HTML page! Amazingly handy for sites that build content based on JSON, such as many e-commerce websites. 
-
-```
-<html>
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="docker pull dgtlmoon/changedetection.io
+docker kill $(docker ps -a -f name=changedetection.io -q)
+docker rm $(docker ps -a -f name=changedetection.io -q)
+docker run -d --restart always -p &quot;127.0.0.1:5000:5000&quot; -v datastore-volume:/datastore --name changedetection.io dgtlmoon/changedetection.io" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<h3 tabindex="-1" dir="auto"><a id="user-content-docker-compose" class="anchor" aria-hidden="true" tabindex="-1" href="#docker-compose"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">码头工人组成</font></font></h3>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>docker compose pull <span class="pl-k">&amp;&amp;</span> docker compose up -d</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="docker compose pull &amp;&amp; docker compose up -d" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关更多信息，请参阅 wiki </font></font><a href="https://github.com/dgtlmoon/changedetection.io/wiki"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/dgtlmoon/changedetection.io/wiki</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-filters" class="anchor" aria-hidden="true" tabindex="-1" href="#filters"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">过滤器</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">XPath(1.0)、JSONPath、jq 和 CSS 支持已内置！</font><font style="vertical-align: inherit;">您可以根据需要具体使用从各种 XPath 元素查询创建工具导出的 XPath。</font><font style="vertical-align: inherit;">（我们支持 LXML</font></font><code>re:test</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code>re:match</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font><code>re:replace</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-notifications" class="anchor" aria-hidden="true" tabindex="-1" href="#notifications"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通知</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://github.com/caronc/apprise"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于apprise</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">库，当网页检测到更改时，ChangeDetection.io 支持大量通知（包括电子邮件、office365、自定义 API 等）</font><font style="vertical-align: inherit;">。</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">只需在该手表的[编辑]</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选项卡中设置一个或多个通知 URL </font><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">只是一些例子</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>discord://webhook_id/webhook_token
+flock://app_token/g:channel_id
+gitter://token/room
+gchat://workspace/key/token
+msteams://TokenA/TokenB/TokenC/
+o365://TenantID:AccountEmail/ClientID/ClientSecret/TargetEmail
+rocket://user:password@hostname/#Channel
+mailto://user:pass@example.com?to=receivingAddress@example.com
+json://someserver.com/custom-api
+syslog://
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="discord://webhook_id/webhook_token
+flock://app_token/g:channel_id
+gitter://token/room
+gchat://workspace/key/token
+msteams://TokenA/TokenB/TokenC/
+o365://TenantID:AccountEmail/ClientID/ClientSecret/TargetEmail
+rocket://user:password@hostname/#Channel
+mailto://user:pass@example.com?to=receivingAddress@example.com
+json://someserver.com/custom-api
+syslog://" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><a href="https://github.com/caronc/apprise#popular-notification-services"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以及此列表中的其他所有内容！</font></font></a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/screenshot-notifications.png"><img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/screenshot-notifications.png" alt="自托管网页变更监控通知" title="自托管网页变更监控通知" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在您还可以自定义通知内容并使用</font></font><a href="https://jinja.palletsprojects.com/en/3.0.x/templates/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Jinja2 模板</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为其标题和正文！</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-json-api-monitoring" class="anchor" aria-hidden="true" tabindex="-1" href="#json-api-monitoring"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JSON API 监控</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">根据需要使用 JSONPath 或 jq 来过滤、解析和重构 JSON，检测 JSON API 中的更改并监控数据。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/json-filter-field-example.png"><img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/json-filter-field-example.png" alt="图像" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这将重新解析 JSON 并将格式应用于文本，从而使监视和检测 JSON API 结果中的更改变得非常容易</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/json-diff-example.png"><img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/json-diff-example.png" alt="图像" style="max-width: 100%;"></a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-jsonpath-or-jq" class="anchor" aria-hidden="true" tabindex="-1" href="#jsonpath-or-jq"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JSONPath 还是 jq？</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于更复杂的 JSON 数据解析、过滤和修改，建议使用 jq，因为它内置了运算符和函数。</font><font style="vertical-align: inherit;">有关 jq 的更多具体信息，</font><font style="vertical-align: inherit;">请参阅</font></font><a href="https://stedolan.github.io/jq/manual/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档。</font></font></a><font style="vertical-align: inherit;"></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其一大优点</font></font><code>jq</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是您可以在 JSON 过滤器中使用逻辑，例如过滤器仅显示值大于/小于等的项目。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关更多信息和示例，</font><font style="vertical-align: inherit;">请参阅 wiki </font></font><a href="https://github.com/dgtlmoon/changedetection.io/wiki/JSON-Selector-Filter-help"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/dgtlmoon/changedetection.io/wiki/JSON-Selector-Filter-help</font></font></a><font style="vertical-align: inherit;"></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-parse-json-embedded-in-html" class="anchor" aria-hidden="true" tabindex="-1" href="#parse-json-embedded-in-html"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">解析 HTML 中嵌入的 JSON！</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当您启用</font></font><code>json:</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code>jq:</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">过滤器时，您甚至可以自动提取和解析 HTML 页面内嵌入的 JSON！</font><font style="vertical-align: inherit;">对于基于 JSON 构建内容的网站（例如许多电子商务网站）来说非常方便。</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>&lt;html&gt;
 ...
-<script type="application/ld+json">
+&lt;script type="application/ld+json"&gt;
 
 {
    "@context":"http://schema.org/",
@@ -217,65 +257,60 @@ When you enable a `json:` or `jq:` filter, you can even automatically extract an
    "sku":"3D5-000D-001T1",
    "itemCondition":"NewCondition"
 }
-</script>
-```  
+&lt;/script&gt;
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="<html>
+...
+<script type=&quot;application/ld+json&quot;>
 
-`json:$..price` or `jq:..price` would give `3949.99`, or you can extract the whole structure (use a JSONpath test website to validate with)
-
-The application also supports notifying you that it can follow this information automatically
-
-
-## Proxy Configuration
-
-See the wiki https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration , we also support using [Bright Data proxy services where possible](https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration#brightdata-proxy-support) and [Oxylabs](https://oxylabs.go2cloud.org/SH2d) proxy services.
-
-## Raspberry Pi support?
-
-Raspberry Pi and linux/arm/v6 linux/arm/v7 arm64 devices are supported! See the wiki for [details](https://github.com/dgtlmoon/changedetection.io/wiki/Fetching-pages-with-WebDriver)
-
-## Import support
-
-Easily [import your list of websites to watch for changes in Excel .xslx file format](https://changedetection.io/tutorial/how-import-your-website-change-detection-lists-excel), or paste in lists of website URLs as plaintext. 
-
-Excel import is recommended - that way you can better organise tags/groups of websites and other features.
-
-
-## API Support
-
-Supports managing the website watch list [via our API](https://changedetection.io/docs/api_v1/index.html)
-
-## Support us
-
-Do you use changedetection.io to make money? does it save you time or money? Does it make your life easier? less stressful? Remember, we write this software when we should be doing actual paid work, we have to buy food and pay rent just like you.
-
-
-Firstly, consider taking out an officially supported [website change detection subscription](https://changedetection.io?src=github) , even if you don't use it, you still get the warm fuzzy feeling of helping out the project. (And who knows, you might just use it!)
-
-Or directly donate an amount PayPal [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=7CP6HR9ZCNDYJ)
-
-Or BTC `1PLFN327GyUarpJd7nVe7Reqg9qHx5frNn`
-
-<img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/btc-support.png" style="max-width:50%;" alt="Support us!"  />
-
-## Commercial Support
-
-I offer commercial support, this software is depended on by network security, aerospace , data-science and data-journalist professionals just to name a few, please reach out at dgtlmoon@gmail.com for any enquiries, I am more than glad to work with your organisation to further the possibilities of what can be done with changedetection.io
-
-
-[release-shield]: https://img.shields.io:/github/v/release/dgtlmoon/changedetection.io?style=for-the-badge
-[docker-pulls]: https://img.shields.io/docker/pulls/dgtlmoon/changedetection.io?style=for-the-badge
-[test-shield]: https://github.com/dgtlmoon/changedetection.io/actions/workflows/test-only.yml/badge.svg?branch=master
-
-[license-shield]: https://img.shields.io/github/license/dgtlmoon/changedetection.io.svg?style=for-the-badge
-[release-link]: https://github.com/dgtlmoon/changedetection.io/releases
-[docker-link]: https://hub.docker.com/r/dgtlmoon/changedetection.io
-
-## Third-party licenses
-
-changedetectionio.html_tools.elementpath_tostring: Copyright (c), 2018-2021, SISSA (Scuola Internazionale Superiore di Studi Avanzati), Licensed under [MIT license](https://github.com/sissaschool/elementpath/blob/master/LICENSE)
-
-## Contributors
-
-Recognition of fantastic contributors to the project
-
-- Constantin Hong https://github.com/Constantin1489
+{
+   &quot;@context&quot;:&quot;http://schema.org/&quot;,
+   &quot;@type&quot;:&quot;Product&quot;,
+   &quot;offers&quot;:{
+      &quot;@type&quot;:&quot;Offer&quot;,
+      &quot;availability&quot;:&quot;http://schema.org/InStock&quot;,
+      &quot;price&quot;:&quot;3949.99&quot;,
+      &quot;priceCurrency&quot;:&quot;USD&quot;,
+      &quot;url&quot;:&quot;https://www.newegg.com/p/3D5-000D-001T1&quot;
+   },
+   &quot;description&quot;:&quot;Cobratype King Cobra Hero Desktop Gaming PC&quot;,
+   &quot;name&quot;:&quot;Cobratype King Cobra Hero Desktop Gaming PC&quot;,
+   &quot;sku&quot;:&quot;3D5-000D-001T1&quot;,
+   &quot;itemCondition&quot;:&quot;NewCondition&quot;
+}
+</script>" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><code>json:$..price</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者</font></font><code>jq:..price</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">会给出</font></font><code>3949.99</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，或者您可以提取整个结构（使用 JSONpath 测试网站进行验证）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该应用程序还支持通知您它可以自动跟踪此信息</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-proxy-configuration" class="anchor" aria-hidden="true" tabindex="-1" href="#proxy-configuration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代理配置</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅 wiki </font></font><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，我们还支持</font></font><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Proxy-configuration#brightdata-proxy-support"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在可能的情况下使用 Bright Data 代理服务</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://oxylabs.go2cloud.org/SH2d" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Oxylabs</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代理服务。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-raspberry-pi-support" class="anchor" aria-hidden="true" tabindex="-1" href="#raspberry-pi-support"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">树莓派支持吗？</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持Raspberry Pi和linux/arm/v6 linux/arm/v7 arm64设备！</font><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Fetching-pages-with-WebDriver"><font style="vertical-align: inherit;">详情</font></a><font style="vertical-align: inherit;">请参阅维基百科</font></font><a href="https://github.com/dgtlmoon/changedetection.io/wiki/Fetching-pages-with-WebDriver"><font style="vertical-align: inherit;"></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-import-support" class="anchor" aria-hidden="true" tabindex="-1" href="#import-support"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">进口支持</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">轻松</font></font><a href="https://changedetection.io/tutorial/how-import-your-website-change-detection-lists-excel" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">导入网站列表以观察 Excel .xslx 文件格式的变化</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，或以纯文本形式粘贴网站 URL 列表。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">建议导入 Excel - 这样您可以更好地组织网站标签/组和其他功能。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-api-support" class="anchor" aria-hidden="true" tabindex="-1" href="#api-support"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">API支持</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><a href="https://changedetection.io/docs/api_v1/index.html" rel="nofollow"><font style="vertical-align: inherit;">支持通过我们的 API</font></a><font style="vertical-align: inherit;">管理网站观察列表</font></font><a href="https://changedetection.io/docs/api_v1/index.html" rel="nofollow"><font style="vertical-align: inherit;"></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-support-us" class="anchor" aria-hidden="true" tabindex="-1" href="#support-us"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持我们</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您使用 ChangeDetection.io 赚钱吗？</font><font style="vertical-align: inherit;">它能为您节省时间或金钱吗？</font><font style="vertical-align: inherit;">它会让你的生活更轻松吗？</font><font style="vertical-align: inherit;">压力较小？</font><font style="vertical-align: inherit;">请记住，我们在应该做实际有偿工作的时候编写了这个软件，我们必须像您一样购买食物并支付租金。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">首先，考虑购买官方支持的</font></font><a href="https://changedetection.io?src=github" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站变更检测订阅</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，即使您不使用它，您仍然会获得帮助项目的温暖模糊感觉。</font><font style="vertical-align: inherit;">（谁知道呢，你可能会用它！）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或直接通过 PayPal 捐赠一定金额</font></font><a href="https://www.paypal.com/donate/?hosted_button_id=7CP6HR9ZCNDYJ" rel="nofollow"><img src="https://camo.githubusercontent.com/0283ea90498d8ea623c07906a5e07e9e6c2a5eaa6911d52033687c60cfa8d22f/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d50617950616c2d677265656e2e737667" alt="捐" data-canonical-src="https://img.shields.io/badge/Donate-PayPal-green.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者比特币</font></font><code>1PLFN327GyUarpJd7nVe7Reqg9qHx5frNn</code></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/btc-support.png"><img src="https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/docs/btc-support.png" alt="支持我们！" style="max-width: 100%;"></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-commercial-support" class="anchor" aria-hidden="true" tabindex="-1" href="#commercial-support"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">商业支持</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我提供商业支持，该软件受到网络安全、航空航天、数据科学和数据记者专业人士的依赖，仅举几例，如有任何疑问，请联系 dgtlmoon@gmail.com </font></font><a href="mailto:dgtlmoon@gmail.com"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我非常乐意工作与您的组织合作，进一步探索使用 ChangeDetection.io 可以完成的工作的可能性</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-third-party-licenses" class="anchor" aria-hidden="true" tabindex="-1" href="#third-party-licenses"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第三方许可</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ChangeDetectionio.html_tools.elementpath_tostring：版权所有 (c)，2018-2021，SISSA (Scuola Internazionale Superiore di Avanzati)，已获得</font></font><a href="https://github.com/sissaschool/elementpath/blob/master/LICENSE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MIT 许可</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content-contributors" class="anchor" aria-hidden="true" tabindex="-1" href="#contributors"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献者</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表彰该项目的杰出贡献者</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">康斯坦丁洪</font></font><a href="https://github.com/Constantin1489"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/Constantin1489</font></font></a></li>
+</ul>
+</article></div>
